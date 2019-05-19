@@ -1,0 +1,11 @@
+---
+- hosts: local
+
+  tasks:
+    - name: grafana-xxl docker
+      docker:
+        image: monitoringartist/grafana-xxl:latest
+        state: started
+        pull: always
+        ports:
+        - "3000:3000"

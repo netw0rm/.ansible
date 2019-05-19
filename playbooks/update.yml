@@ -1,0 +1,19 @@
+---
+- hosts: docker
+
+  tasks:
+    - name: debian update cache & openssh-server
+      apt: name=openssh-server state=latest update_cache=yes
+      when: ansible_os_family == "Debian"
+
+    - name: centos update cache & openssh-server
+      yum: name=openssh-server state=latest update_cache=yes
+      when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "6"
+
+    - name: debian sshd enabled
+      service: name=ssh enabled=yes
+      when: ansible_os_family == "Debian"
+
+    - name: cent sshd enabled
+      service: name=sshd enabled=yes
+      when: ansible_os_family == "RedHat"

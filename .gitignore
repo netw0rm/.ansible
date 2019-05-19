@@ -1,0 +1,9 @@
+.ssh
+ansible.log
+*.pyc
+*.retry
+/inventory/*
+!/inventory/hosts
+cp
+pc
+tmp

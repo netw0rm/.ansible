@@ -1,0 +1,8 @@
+---
+- hosts: cent
+
+  tasks:
+    - name: install sshd
+      yum: name=openssh-server state=present
+    - name: service sshd
+      service: name=sshd state=started

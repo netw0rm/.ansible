@@ -1,0 +1,8 @@
+---
+- hosts: local
+  
+  tasks:
+    - name: pull an image
+      docker_image:
+        name: rastasheep/ubuntu-sshd
+        tag: 14.04
